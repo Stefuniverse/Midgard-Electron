@@ -1,7 +1,7 @@
-const { extname } = require('path');
+const { extname } = require('path')
 
 const mime = filename =>
-  mime[extname(`${filename || ''}`).toLowerCase()];
+  mime[extname(`${filename || ''}`).toLowerCase()]
 
 mime[''] = 'text/plain',
   mime['.js'] =
@@ -11,6 +11,6 @@ mime[''] = 'text/plain',
   mime['.htm'] = 'text/html',
   mime['.json'] = 'application/json',
   mime['.css'] = 'text/css',
-  mime['.svg'] = 'application/svg+xml';
+  mime['.svg'] = 'application/svg+xml'
 
-module.exports = mime;
+module.exports = mime

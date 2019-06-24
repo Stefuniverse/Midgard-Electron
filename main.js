@@ -1,4 +1,4 @@
-const { app, BrowserWindow, protocol } = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 const base = app.getAppPath()
 const scheme = 'app'

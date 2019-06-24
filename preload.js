@@ -1,12 +1,12 @@
-let {webFrame} = require("electron");
+let { webFrame } = require('electron')
 
-process.once("loaded", () => {
+process.once('loaded', () => {
   // Allow window.fetch() to access app files
-  webFrame.registerURLSchemeAsPrivileged("app", {
+  webFrame.registerURLSchemeAsPrivileged('app', {
     secure: true,
     bypassCSP: false,
     allowServiceWorkers: true,
     supportFetchAPI: true,
     corsEnabled: false
-  });
-});
+  })
+})
