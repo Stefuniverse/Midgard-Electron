@@ -1,6 +1,11 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, protocol } = require('electron')
+
+const base = app.getAppPath()
+const scheme = 'app'
 
 let win
+
+require('./create-protocol')(scheme, base)
 
 function createWindow () {
   // Create the browser window.
@@ -8,7 +13,8 @@ function createWindow () {
     width: 600,
     height: 600,
     backgroundColor: '#ffffff',
-    icon: `file://${__dirname}/dist/assets/logo.png`
+    icon: `file://${__dirname}/dist/assets/logo.png`,
+    webPreferences: { preload: `${__dirname}/preload.js` }
   })
 
   win.loadURL(`file://${__dirname}/dist/angular-electron/index.html`)
