@@ -28,7 +28,7 @@ export class ToolbarComponent implements OnInit {
   });
 
   dialogRef.afterClosed().subscribe(result => {
-      this.floraAmount = result;
+      this.faunaAmount = result;
       this.envDataS.generateRandomFauna(result);
     });
 

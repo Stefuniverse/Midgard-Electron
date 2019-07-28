@@ -22,8 +22,8 @@ export class EnvironmentDataService {
   areaList : string[];
   countryList : string[];
 
-  private currentCountry : string;
-  private currentArea : string;
+  private currentCountry : string = "Alba";
+  private currentArea : string = "Stadt";
 
   private currentFauna : Subject<Animal[]> = new Subject<Animal[]>();
   private currentFlora : Subject<Plant[]> = new Subject<Plant[]>();
@@ -57,13 +57,18 @@ export class EnvironmentDataService {
   }
 
   generateRandomFlora(amount : number) : void {
-    //TODO: Methode ausbauen, um Pflanzen zu verarbeiten
 
     var selectedFlora : Plant[] = [];
+    var workList : Animal[] = [];
 
+    for (var a of this.plantList ) {
+      if (a.countries.includes(this.currentCountry) && a.areas.includes(this.currentArea)){
+        workList.push(a);
+      }
+    }
 
     for (var _i = 0; _i < amount; _i++) {
-    selectedFlora.push(this.plantList[Math.floor(Math.random() * (this.floraSize))]);
+    selectedFlora.push(workList[Math.floor(Math.random() * (workList.length))]);
     }
 
     this.currentFlora.next(selectedFlora);
@@ -71,10 +76,16 @@ export class EnvironmentDataService {
 
   generateRandomFauna(amount : number) : void {
     var selectedAnimals : Animal[] = [];
+    var workList : Animal[] = [];
 
+    for (var a of this.animalList ) {
+      if (a.countries.includes(this.currentCountry) && a.areas.includes(this.currentArea)){
+        workList.push(a);
+      }
+    }
 
     for (var _i = 0; _i < amount; _i++) {
-    selectedAnimals.push(this.animalList[Math.floor(Math.random() * (this.animalSize))]);
+    selectedAnimals.push(workList[Math.floor(Math.random() * (workList.length))]);
     }
 
     this.currentFauna.next(selectedAnimals);
