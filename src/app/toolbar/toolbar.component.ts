@@ -29,8 +29,20 @@ export class ToolbarComponent implements OnInit {
 
   dialogRef.afterClosed().subscribe(result => {
       this.floraAmount = result;
-      console.log(result);
       this.envDataS.generateRandomFauna(result);
+    });
+
+  }
+
+  generateFloraOpenDialog() : void {
+    const dialogRef = this.dialog.open(EnvGenerateRandomDialogComponent, {
+    width: '250px',
+    data: {what: 'Flora', amount: this.floraAmount}
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+      this.floraAmount = result;
+      this.envDataS.generateRandomFlora(result);
     });
 
   }

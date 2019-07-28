@@ -5,6 +5,7 @@ import {Subject} from "rxjs";
 import { Animal } from './animal';
 import { ANIMALS } from './ressources/animals';
 import { Plant } from './plant';
+import { PLANTS } from './ressources/plants';
 
 
 @Injectable({
@@ -16,6 +17,7 @@ export class EnvironmentDataService {
   animalList : Animal[];
   animalSize : number;
   plantList : Plant[];
+  floraSize : number;
 
   areaList : string[];
   countryList : string[];
@@ -57,8 +59,14 @@ export class EnvironmentDataService {
   generateRandomFlora(amount : number) : void {
     //TODO: Methode ausbauen, um Pflanzen zu verarbeiten
 
-    const mockPlant : Plant[] = [{name : 'Lilie', ref : 'blakeks', areas: ['Wald', 'Wiese'], countries: ['alle'], rarity: 1}] ;
-    this.currentFlora.next(mockPlant);
+    var selectedFlora : Plant[] = [];
+
+
+    for (var _i = 0; _i < amount; _i++) {
+    selectedFlora.push(this.plantList[Math.floor(Math.random() * (this.floraSize))]);
+    }
+
+    this.currentFlora.next(selectedFlora);
   }
 
   generateRandomFauna(amount : number) : void {
@@ -76,12 +84,32 @@ export class EnvironmentDataService {
   constructor() {
 
     this.animalList = ANIMALS;
+    this.plantList = PLANTS;
     this.animalSize = this.animalList.length;
+    this.floraSize = this.plantList.length;
     this.areaList = [];
     this.countryList = [];
 
     //serch List for countries
     for (var anm of this.animalList){
+
+      for (var area of anm.areas){
+        if (!this.areaList.includes(area)){
+          this.areaList.push(area);
+        }
+
+      }
+
+      for (var country of anm.countries){
+        if (!this.countryList.includes(country)){
+          this.countryList.push(country);
+        }
+
+      }
+
+    }
+
+    for (var anm of this.plantList){
 
       for (var area of anm.areas){
         if (!this.areaList.includes(area)){
