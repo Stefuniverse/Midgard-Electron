@@ -1,6 +1,7 @@
 export class Plant {
-  id : number;
   name : string;
-  areas : string[];
+  ref : string;
   countries : string[];
+  areas : string[];
+  rarity : number;
 }

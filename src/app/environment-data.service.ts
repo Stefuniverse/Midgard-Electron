@@ -20,8 +20,11 @@ export class EnvironmentDataService {
   areaList : string[];
   countryList : string[];
 
+  private currentCountry : string;
+  private currentArea : string;
+
   private currentFauna : Subject<Animal[]> = new Subject<Animal[]>();
-  private currentFlora : Plant[];
+  private currentFlora : Subject<Plant[]> = new Subject<Plant[]>();
 
   getCurrentFauna() : Observable<Animal[]> {
 
@@ -31,7 +34,7 @@ export class EnvironmentDataService {
 
   getCurrentFlora() : Observable<Plant[]> {
 
-    return of (this.currentFlora);
+    return this.currentFlora.asObservable();
 
   }
 
@@ -44,11 +47,18 @@ export class EnvironmentDataService {
     return of (this.areaList)
   }
 
+  setLocation(country : string, area : string) : void {
+    this.currentCountry = country;
+    this.currentArea = area;
+
+    this.currentFauna.next([]);
+  }
+
   generateRandomFlora(amount : number) : void {
     //TODO: Methode ausbauen, um Pflanzen zu verarbeiten
 
-    const mockPlant : Plant[] = [{id : 1, name : 'Lilie', areas: ['Wald', 'Wiese'], countries: ['alle']}] ;
-    this.currentFlora = mockPlant;
+    const mockPlant : Plant[] = [{name : 'Lilie', ref : 'blakeks', areas: ['Wald', 'Wiese'], countries: ['alle'], rarity: 1}] ;
+    this.currentFlora.next(mockPlant);
   }
 
   generateRandomFauna(amount : number) : void {

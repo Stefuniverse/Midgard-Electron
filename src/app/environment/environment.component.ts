@@ -23,16 +23,21 @@ export class EnvironmentComponent implements OnInit {
 
   currentAnimals : Animal[];
   faunaSubscription: Subscription;
+  floraSubscription: Subscription;
 
   currentPlants : Plant[];
 
 
   constructor(private envDataService: EnvironmentDataService) {
 
-    	this.faunaSubscription = envDataService.getCurrentFauna().subscribe(currentAnimals => {
-        this.currentAnimals = currentAnimals;
-        console.log("Tiere erhalten"+ currentAnimals);
-      });
+    this.faunaSubscription = envDataService.getCurrentFauna().subscribe(currentAnimals => {
+      this.currentAnimals = currentAnimals;
+    });
+
+    this.floraSubscription = envDataService.getCurrentFlora().subscribe(currentPlants => {
+      this.currentPlants = currentPlants;
+    });
+
       envDataService.getCurrentFlora().subscribe(currentPlants => this.currentPlants = currentPlants);
       envDataService.getAreas().subscribe(areas => this.areaList = areas);
       envDataService.getCountries().subscribe(countries => this.countryList = countries);
