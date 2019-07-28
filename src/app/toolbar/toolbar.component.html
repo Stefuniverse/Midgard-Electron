@@ -1,0 +1,26 @@
+<mat-toolbar>
+
+  <div ng-controller="menuController as ctrl">
+    <button mat-button [matMenuTriggerFor]="environment">Environment</button>
+
+    <mat-menu #environment="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="fauna">Fauna</button>
+      <button mat-menu-item [matMenuTriggerFor]="flora">Flora</button>
+      <button mat-menu-item [matMenuTriggerFor]="weather">Wetter</button>
+    </mat-menu>
+
+    <mat-menu #fauna="matMenu">
+      <button mat-menu-item (click)="generateFaunaOpenDialog()">Generate Random</button>
+    </mat-menu>
+
+    <mat-menu #flora="matMenu">
+      <button mat-menu-item>Generate Random</button>
+    </mat-menu>
+
+    <mat-menu #weather="matMenu">
+      <button mat-menu-item>Generate Random</button>
+    </mat-menu>
+  </div>
+
+
+</mat-toolbar>

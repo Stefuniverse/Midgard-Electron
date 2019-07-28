@@ -1,0 +1,29 @@
+<ul class="animals">
+  <li *ngFor="let animal of currentAnimals">
+    <span class="badge">{{animal.name}}</span>
+  </li>
+</ul>
+
+<ul class="plants">
+  <li *ngFor="let plant of currentPlants">
+    <span class="badge">{{plant.id}}</span> {{plant.name}}
+  </li>
+</ul>
+
+<mat-form-field>
+  <mat-label>current Area</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let area of areaList" [value]="area">
+      {{area}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Current Country</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let country of countryList" [value]="country">
+      {{country}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Generate random {{data.what}}</h1>
+<div mat-dialog-content>
+  <p>How many random {{data.what}} shall be created?</p>
+  <mat-form-field>
+    <input matInput type="number" [(ngModel)]="data.amount">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Abort</button>
+  <button mat-button [mat-dialog-close]="data.amount" cdkFocusInitial>Generate!</button>
+</div>
