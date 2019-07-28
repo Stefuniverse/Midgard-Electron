@@ -12,7 +12,7 @@
 
 <mat-form-field>
   <mat-label>current Area</mat-label>
-  <mat-select>
+  <mat-select [(value)]="selectedArea" placeholder="Stadt" (selectionChange)="envChanged()">
     <mat-option *ngFor="let area of areaList" [value]="area">
       {{area}}
     </mat-option>
@@ -21,7 +21,7 @@
 
 <mat-form-field>
   <mat-label>Current Country</mat-label>
-  <mat-select>
+  <mat-select [(value)]="selectedCountry" placeholder="Alba">
     <mat-option *ngFor="let country of countryList" [value]="country">
       {{country}}
     </mat-option>

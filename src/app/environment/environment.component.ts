@@ -17,7 +17,7 @@ export class EnvironmentComponent implements OnInit {
 
   selectedCountry : string;
   selectedArea : string;
-
+  envDataS : EnvironmentDataService;
   countryList : string[];
   areaList : string[];
 
@@ -27,9 +27,14 @@ export class EnvironmentComponent implements OnInit {
 
   currentPlants : Plant[];
 
+  envChanged() : void {
+    this.envDataS.setLocation( this.selectedCountry, this.selectedArea);
+  }
 
   constructor(private envDataService: EnvironmentDataService) {
-
+    this.envDataS = envDataService;
+    this.selectedArea = "Stadt";
+    this.selectedCountry = "Alba";
     this.faunaSubscription = envDataService.getCurrentFauna().subscribe(currentAnimals => {
       this.currentAnimals = currentAnimals;
     });
