@@ -1,12 +1,12 @@
 <ul class="animals">
   <li *ngFor="let animal of currentAnimals">
-    <span class="badge">{{animal.name}}</span>
+    <span class="badge" matTooltip="{{animal.ref}}">{{animal.name}}</span>
   </li>
 </ul>
 
 <ul class="plants">
   <li *ngFor="let plant of currentPlants">
-    <span class="badge">{{plant.id}}</span> {{plant.name}}
+    <span class="badge" matTooltip="{{plant.ref}}">{{plant.name}}</span>
   </li>
 </ul>
 

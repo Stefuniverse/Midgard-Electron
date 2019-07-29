@@ -16,6 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { EnvGenerateRandomDialogComponent } from './env-generate-random-dialog/env-generate-random-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {MatInputModule} from '@angular/material/input';
     MatMenuModule,
     MatButtonModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
 
     //AppRoutingModule
   ],
