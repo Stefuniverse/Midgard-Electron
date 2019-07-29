@@ -67,8 +67,18 @@ export class EnvironmentDataService {
       }
     }
 
+    if (workList.length === 0){
+      this.currentFlora.next([]);
+      return;
+    } else if (workList.length <= amount){
+      this.currentFlora.next(workList);
+      return;
+    }
+
     for (var _i = 0; _i < amount; _i++) {
-    selectedFlora.push(workList[Math.floor(Math.random() * (workList.length))]);
+      var select : number;
+      selectedFlora.push(workList[select]);
+      workList.splice(select,1);
     }
 
     this.currentFlora.next(selectedFlora);
@@ -84,8 +94,18 @@ export class EnvironmentDataService {
       }
     }
 
+    if (workList.length === 0){
+      this.currentFauna.next([]);
+      return;
+    } else if (workList.length <= amount){
+      this.currentFauna.next(workList);
+      return;
+    }
+
     for (var _i = 0; _i < amount; _i++) {
-    selectedAnimals.push(workList[Math.floor(Math.random() * (workList.length))]);
+      var select : number;
+      selectedAnimals.push(workList[select]);
+      workList.splice(select,1);
     }
 
     this.currentFauna.next(selectedAnimals);
