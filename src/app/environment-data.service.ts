@@ -43,11 +43,11 @@ export class EnvironmentDataService {
 
   getCountries() : Observable<string[]> {
 
-    return of (this.countryList)
+    return of (this.countryList.sort())
   }
 
   getAreas() : Observable<string[]> {
-    return of (this.areaList)
+    return of (this.areaList.sort())
   }
 
   setLocation(country : string, area : string) : void {
