@@ -55,6 +55,7 @@ export class EnvironmentDataService {
     this.currentArea = area;
 
     this.currentFauna.next([]);
+    this.currentFlora.next([]);
   }
 
   generateRandomFlora(amount : number) : void {
