@@ -6,6 +6,7 @@ import { Animal } from './animal';
 import { ANIMALS } from './ressources/animals';
 import { Plant } from './plant';
 import { PLANTS } from './ressources/plants';
+import {PLANTRARITY} from './ressources/rarity-levels';
 
 
 @Injectable({
@@ -67,18 +68,53 @@ export class EnvironmentDataService {
       }
     }
 
-    if (workList.length === 0){
+    if (workList.filter(plant => plant.rarity === 1).length === 0){
       this.currentFlora.next([]);
       return;
-    } else if (workList.length <= amount){
-      this.currentFlora.next(workList);
-      return;
+    } else if (workList.filter(plant => plant.rarity === 1).length < amount){
+
+      //All plants for this category not enough to cover demand?
+      if (workList.filter(plant => plant.rarity === 1).length+
+      workList.filter(plant => plant.rarity === 2).length+
+      workList.filter(plant => plant.rarity === 3).length <= amount){
+        this.currentFlora.next(workList.filter(plant => plant.rarity === 1));
+        return;
+        //shorten list to amount of rarity 1
+      } else {
+        amount = workList.filter(plant => plant.rarity === 1).length;
+      }
     }
 
     for (var _i = 0; _i < amount; _i++) {
-      var select : number;
-      selectedFlora.push(workList[select]);
-      workList.splice(select,1);
+
+      var rarity : number = Math.random();
+      var tmp : Plant[] = [];
+      var selectedPlant : Plant;
+      if (rarity <= PLANTRARITY[1]){
+        tmp = workList.filter(plant => plant.rarity === 1);
+        selectedPlant = tmp[Math.floor(Math.random() * (tmp.length))];
+        selectedFlora.push(selectedPlant);
+        workList.splice(workList.indexOf(selectedPlant), 1)
+      } else if (rarity <= PLANTRARITY[2]){
+        tmp = workList.filter(plant => plant.rarity === 2);
+        if (tmp.length !== 0){
+          selectedPlant = tmp[Math.floor(Math.random() * (tmp.length))];
+          selectedFlora.push(selectedPlant);
+          workList.splice(workList.indexOf(selectedPlant), 1)
+        } else {
+          _i -= 1;
+        }
+      } else {
+        tmp = workList.filter(plant => plant.rarity === 3);
+        if (tmp.length !== 0){
+          selectedPlant = tmp[Math.floor(Math.random() * (tmp.length))];
+          selectedFlora.push(selectedPlant);
+          workList.splice(workList.indexOf(selectedPlant), 1)
+        } else {
+          _i -= 1;
+        }
+      }
+
     }
 
     this.currentFlora.next(selectedFlora);
@@ -104,6 +140,7 @@ export class EnvironmentDataService {
 
     for (var _i = 0; _i < amount; _i++) {
       var select : number;
+      select = Math.floor(Math.random() * (workList.length));
       selectedAnimals.push(workList[select]);
       workList.splice(select,1);
     }

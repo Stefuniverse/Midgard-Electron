@@ -43,7 +43,6 @@ export class EnvironmentComponent implements OnInit {
       this.currentPlants = currentPlants;
     });
 
-      envDataService.getCurrentFlora().subscribe(currentPlants => this.currentPlants = currentPlants);
       envDataService.getAreas().subscribe(areas => this.areaList = areas);
       envDataService.getCountries().subscribe(countries => this.countryList = countries);
 
