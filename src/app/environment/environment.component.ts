@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { EnvironmentDataService }  from '../environment-data.service';
-import { Subscription } from 'rxjs';
+import { Subscription, of as observableOf } from 'rxjs';
 import { Animal } from '../animal';
 import { Plant } from '../plant';
 
@@ -32,6 +32,7 @@ export class EnvironmentComponent implements OnInit {
   }
 
   constructor(private envDataService: EnvironmentDataService) {
+
     this.envDataS = envDataService;
     this.selectedArea = "Stadt";
     this.selectedCountry = "Alba";

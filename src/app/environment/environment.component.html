@@ -18,15 +18,50 @@
     </mat-select>
   </mat-form-field>
 
-  <ul class="animals">
-    <li *ngFor="let animal of currentAnimals">
-      <span class="badge" matTooltip="{{animal.ref}}">{{animal.name}}</span>
-    </li>
-  </ul>
+  <mat-accordion>
+  <mat-expansion-panel *ngIf="currentAnimals != null && currentAnimals.length !== 0">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Fauna
+      </mat-panel-title>
 
-  <ul class="plants">
-    <li *ngFor="let plant of currentPlants">
-      <span class="badge" matTooltip="{{plant.ref}}">{{plant.name}}</span>
-    </li>
-  </ul>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item *ngFor="let animal of currentAnimals" matTooltip="{{animal.ref}}"> {{animal.name}} </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel *ngIf="currentPlants != null && currentPlants.length !== 0">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Flora
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item *ngFor="let plant of currentPlants" matTooltip="{{plant.ref}}"> {{plant.name}} </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+  <!--<mat-tree [dataSource]="animalDataSource" [treeControl]="animalTreeControl" >
+    <mat-tree-node *matTreeNodeDef="let animal">
+        <li>
+            <button mat-icon-button disabled></button>
+            {{animal.name}}
+        </li>
+    </mat-tree-node>
+  </mat-tree>
+
+  <!--<mat-tree *ngIf="currentAnimals != null && currentAnimals.length !== 0">
+    <mat-tree-node> Fauna </mat-tree-node>
+    <mat-tree-node *ngFor="let animal of currentAnimals" matTooltip="{{animal.ref}}"> {{animal.name}} </mat-tree-node>
+  </mat-tree>
+
+
+
+  <mat-tree  *ngIf="currentAnimals != null && currentAnimals.length !== 0">
+    <mat-tree-node> Flora </mat-tree-node>
+    <mat-tree-node *ngFor="let plant of currentPlants" matTooltip="{{plant.ref}}"> {{plant.name}} </mat-tree-node>
+  </mat-tree>
 </mat-card>
+!-->

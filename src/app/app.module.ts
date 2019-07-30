@@ -18,6 +18,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {MatCardModule} from '@angular/material/card';
     MatDialogModule,
     MatInputModule,
     MatTooltipModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule,
+    MatListModule
 
     //AppRoutingModule
   ],
