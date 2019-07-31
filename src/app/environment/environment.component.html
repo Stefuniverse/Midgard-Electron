@@ -1,19 +1,20 @@
 <mat-card>
   <mat-card-title> Current Environment </mat-card-title>
-  <mat-form-field>
-    <mat-label>Current Area</mat-label>
-    <mat-select [(value)]="selectedArea" placeholder="Stadt" (selectionChange)="envChanged()">
-      <mat-option *ngFor="let area of areaList" [value]="area">
-        {{area}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  &nbsp;&nbsp;&nbsp;&nbsp;
+
   <mat-form-field>
     <mat-label>Current Country</mat-label>
     <mat-select [(value)]="selectedCountry" placeholder="Alba" (selectionChange)="envChanged()">
       <mat-option *ngFor="let country of countryList" [value]="country">
         {{country}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-form-field>
+    <mat-label>Current Area</mat-label>
+    <mat-select [(value)]="selectedArea" placeholder="Stadt" (selectionChange)="envChanged()">
+      <mat-option *ngFor="let area of environments[selectedCountry]" [value]="area">
+        {{area}}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -41,27 +42,3 @@
     </mat-list>
   </mat-expansion-panel>
 </mat-accordion>
-
-
-  <!--<mat-tree [dataSource]="animalDataSource" [treeControl]="animalTreeControl" >
-    <mat-tree-node *matTreeNodeDef="let animal">
-        <li>
-            <button mat-icon-button disabled></button>
-            {{animal.name}}
-        </li>
-    </mat-tree-node>
-  </mat-tree>
-
-  <!--<mat-tree *ngIf="currentAnimals != null && currentAnimals.length !== 0">
-    <mat-tree-node> Fauna </mat-tree-node>
-    <mat-tree-node *ngFor="let animal of currentAnimals" matTooltip="{{animal.ref}}"> {{animal.name}} </mat-tree-node>
-  </mat-tree>
-
-
-
-  <mat-tree  *ngIf="currentAnimals != null && currentAnimals.length !== 0">
-    <mat-tree-node> Flora </mat-tree-node>
-    <mat-tree-node *ngFor="let plant of currentPlants" matTooltip="{{plant.ref}}"> {{plant.name}} </mat-tree-node>
-  </mat-tree>
-</mat-card>
-!-->

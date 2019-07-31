@@ -18,6 +18,7 @@ export class EnvironmentComponent implements OnInit {
   selectedCountry : string;
   selectedArea : string;
   envDataS : EnvironmentDataService;
+  environments : object;
   countryList : string[];
   areaList : string[];
 
@@ -44,8 +45,11 @@ export class EnvironmentComponent implements OnInit {
       this.currentPlants = currentPlants;
     });
 
-      envDataService.getAreas().subscribe(areas => this.areaList = areas);
-      envDataService.getCountries().subscribe(countries => this.countryList = countries);
+      envDataService.getEnvironments().subscribe(envs => {
+        this.environments = envs;
+        this.countryList = Object.keys(this.environments);
+        console.log(this.countryList);
+      });
 
   }
 

@@ -25,6 +25,7 @@ export class EnvironmentDataService {
 
   private currentCountry : string = "Alba";
   private currentArea : string = "Stadt";
+  private environments : Object;
 
   private currentFauna : Subject<Animal[]> = new Subject<Animal[]>();
   private currentFlora : Subject<Plant[]> = new Subject<Plant[]>();
@@ -41,13 +42,17 @@ export class EnvironmentDataService {
 
   }
 
-  getCountries() : Observable<string[]> {
+  getEnvironments() : Observable<object> {
 
-    return of (this.countryList.sort())
+    return of (this.environments)
   }
 
   getAreas() : Observable<string[]> {
     return of (this.areaList.sort())
+  }
+
+  getCountries() : Observable<string[]> {
+    return of (this.countryList.sort())
   }
 
   setLocation(country : string, area : string) : void {
@@ -64,7 +69,7 @@ export class EnvironmentDataService {
     var workList : Animal[] = [];
 
     for (var a of this.plantList ) {
-      if (a.countries.includes(this.currentCountry) && a.areas.includes(this.currentArea)){
+      if (a.countries[this.currentCountry] != null && a.countries[this.currentCountry].includes(this.currentArea)){
         workList.push(a);
       }
     }
@@ -119,6 +124,7 @@ export class EnvironmentDataService {
     }
 
     this.currentFlora.next(selectedFlora);
+
   }
 
   generateRandomFauna(amount : number) : void {
@@ -126,7 +132,7 @@ export class EnvironmentDataService {
     var workList : Animal[] = [];
 
     for (var a of this.animalList ) {
-      if (a.countries.includes(this.currentCountry) && a.areas.includes(this.currentArea)){
+      if (a.countries[this.currentCountry] != null && a.countries[this.currentCountry].includes(this.currentArea)){
         workList.push(a);
       }
     }
@@ -158,44 +164,51 @@ export class EnvironmentDataService {
     this.floraSize = this.plantList.length;
     this.areaList = [];
     this.countryList = [];
+    this.environments = {};
 
-    //serch List for countries
+    //serch List for countries and areas
     for (var anm of this.animalList){
-
-      for (var area of anm.areas){
-        if (!this.areaList.includes(area)){
-          this.areaList.push(area);
+      for (var country in anm.countries){
+        if (!(country in this.environments)){
+          this.environments[country] = anm.countries[country];
+          for(var j=0; j<this.environments[country].length;j++){
+            if (this.environments[country].filter(item => item == this.environments[country][j]).length !== 1){
+                this.environments[country].splice(j,1);
+            }
+          }
+          if (anm.countries[country].includes("")){
+            this.environments[country].splice(this.environments[country].indexOf(""),1);
+          }
+        } else {
+          for (var i=0; i < anm.countries[country].length;i++) {
+            if(!this.environments[country].includes(anm.countries[country][i]) && anm.countries[country][i]!== ""){
+              this.environments[country].push(anm.countries[country][i]);
+            }
+          }
         }
-
       }
-
-      for (var country of anm.countries){
-        if (!this.countryList.includes(country)){
-          this.countryList.push(country);
-        }
-
-      }
-
     }
 
-    for (var anm of this.plantList){
-
-      for (var area of anm.areas){
-        if (!this.areaList.includes(area)){
-          this.areaList.push(area);
+    for (var pla of this.plantList){
+      for (var country in pla.countries){
+        if (!(country in this.environments)){
+          this.environments[country] = pla.countries[country];
+          for(var j=0; j<this.environments[country].length;j++){
+            if (this.environments[country].filter(item => item == this.environments[country][j]).length !== 1){
+                this.environments[country].splice(j,1);
+            }
+          }
+          if (pla.countries[country].includes("")){
+            this.environments[country].splice(this.environments[country].indexOf(""),1);
+          }
+        } else {
+          for (var i=0; i < pla.countries[country].length;i++) {
+            if(!this.environments[country].includes(pla.countries[country][i]) && pla.countries[country][i]!== ""){
+              this.environments[country].push(pla.countries[country][i]);
+            }
+          }
         }
-
       }
-
-      for (var country of anm.countries){
-        if (!this.countryList.includes(country)){
-          this.countryList.push(country);
-        }
-
-      }
-
     }
-
   }
-
 }

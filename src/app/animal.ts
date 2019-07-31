@@ -1,7 +1,6 @@
 export class Animal {
   name : string;
   ref : string;
-  countries : string[];
-  areas : string[];
+  countries : object;
   rarity : number;
 }
