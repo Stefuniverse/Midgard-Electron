@@ -25,11 +25,10 @@
       <mat-panel-title>
         Fauna
       </mat-panel-title>
-
     </mat-expansion-panel-header>
-    <mat-list>
-      <mat-list-item *ngFor="let animal of currentAnimals" matTooltip="{{animal.ref}}"> {{animal.name}} </mat-list-item>
-    </mat-list>
+    <mat-chip-list>
+      <mat-chip *ngFor="let animal of currentAnimals" matTooltip="{{animal.ref}}" [ngStyle]="{backgroundColor: getColor(animal)}"> {{animal.name}} </mat-chip>
+    </mat-chip-list>
   </mat-expansion-panel>
   <mat-expansion-panel *ngIf="currentPlants != null && currentPlants.length !== 0">
     <mat-expansion-panel-header>
@@ -37,8 +36,8 @@
         Flora
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <mat-list>
-      <mat-list-item *ngFor="let plant of currentPlants" matTooltip="{{plant.ref}}"> {{plant.name}} </mat-list-item>
-    </mat-list>
+    <mat-chip-list>
+      <mat-chip *ngFor="let plant of currentPlants" matTooltip="{{plant.ref}}" [ngStyle]="{backgroundColor: getColor(plant)}"> {{plant.name}} </mat-chip>
+    </mat-chip-list>
   </mat-expansion-panel>
 </mat-accordion>

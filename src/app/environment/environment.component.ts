@@ -32,6 +32,16 @@ export class EnvironmentComponent implements OnInit {
     this.envDataS.setLocation( this.selectedCountry, this.selectedArea);
   }
 
+  getColor(anm : Plant) : string {
+    if (anm.rarity === 1){
+      return "lightgrey";
+    } else if (anm.rarity === 2){
+      return "lightblue";
+    } else {
+      return "lightgreen";
+    }
+  }
+
   constructor(private envDataService: EnvironmentDataService) {
 
     this.envDataS = envDataService;
@@ -48,7 +58,6 @@ export class EnvironmentComponent implements OnInit {
       envDataService.getEnvironments().subscribe(envs => {
         this.environments = envs;
         this.countryList = Object.keys(this.environments);
-        console.log(this.countryList);
       });
 
   }

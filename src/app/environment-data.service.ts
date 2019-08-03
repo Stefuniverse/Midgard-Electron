@@ -6,7 +6,7 @@ import { Animal } from './animal';
 import { ANIMALS } from './ressources/animals';
 import { Plant } from './plant';
 import { PLANTS } from './ressources/plants';
-import {PLANTRARITY} from './ressources/rarity-levels';
+import {PLANTRARITY, ANIMALRARITY } from './ressources/rarity-levels';
 
 
 @Injectable({
@@ -128,7 +128,7 @@ export class EnvironmentDataService {
   }
 
   generateRandomFauna(amount : number) : void {
-    var selectedAnimals : Animal[] = [];
+    var selectedFauna : Animal[] = [];
     var workList : Animal[] = [];
 
     for (var a of this.animalList ) {
@@ -146,15 +146,47 @@ export class EnvironmentDataService {
     }
 
     for (var _i = 0; _i < amount; _i++) {
-      var select : number;
-      select = Math.floor(Math.random() * (workList.length));
-      selectedAnimals.push(workList[select]);
-      workList.splice(select,1);
+
+      var rarity : number = Math.random();
+      var tmp : Animal[] = [];
+      var selectedAnimal : Animal;
+      if (rarity <= ANIMALRARITY[1]){
+        tmp = workList.filter(animal => animal.rarity === 1);
+        selectedAnimal = tmp[Math.floor(Math.random() * (tmp.length))];
+        selectedFauna.push(selectedAnimal);
+        workList.splice(workList.indexOf(selectedAnimal), 1)
+      } else if (rarity <= ANIMALRARITY[2]){
+        tmp = workList.filter(animal => animal.rarity === 2);
+        if (tmp.length !== 0){
+          selectedAnimal = tmp[Math.floor(Math.random() * (tmp.length))];
+          selectedFauna.push(selectedAnimal);
+          workList.splice(workList.indexOf(selectedAnimal), 1);
+        } else {
+          _i -= 1;
+        }
+      } else if (rarity <= ANIMALRARITY[3]){
+        tmp = workList.filter(animal => animal.rarity === 3);
+        if (tmp.length !== 0){
+          selectedAnimal = tmp[Math.floor(Math.random() * (tmp.length))];
+          selectedFauna.push(selectedAnimal);
+          workList.splice(workList.indexOf(selectedAnimal), 1);
+        } else {
+          _i -= 1;
+        }
+      } else {
+        tmp = workList.filter(animal => animal.rarity === 4);
+        if (tmp.length !== 0){
+          selectedAnimal = tmp[Math.floor(Math.random() * (tmp.length))];
+          selectedFauna.push(selectedAnimal);
+          workList.splice(workList.indexOf(selectedAnimal), 1);
+      }
+
     }
 
-    this.currentFauna.next(selectedAnimals);
+    this.currentFauna.next(selectedFauna);
 
   }
+}
 
   constructor() {
 
