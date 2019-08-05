@@ -21,6 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
 import {MatChipsModule} from '@angular/material/chips';
+import { WeatherTimePanelComponent } from './weather-time-panel/weather-time-panel.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatChipsModule} from '@angular/material/chips';
     StatusOverviewComponent,
     EventviewerComponent,
     ToolbarComponent,
-    EnvGenerateRandomDialogComponent
+    EnvGenerateRandomDialogComponent,
+    WeatherTimePanelComponent
   ],
   imports: [
     BrowserModule,
