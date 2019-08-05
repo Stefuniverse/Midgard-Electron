@@ -1,16 +1,17 @@
 # Midgard Helper App
-An App with a collection of features to play Midgard PnP
+A collection of features to help GMs to generate complex wildlife and plants in any area at Midgard.
 
 ## Setup
 In order to help me with this project, set it up as follows:
 
-1.  Download Node.js
-2.  Go to your command line and type
+1.  Download Node.js / npm
+2.  Go to your command line, clone the repo, jump in the new folder and type
 
 ```
-$ npm install -g @angular/cli
-$ npm install electron --save-dev
+$ npm i
 ```
 
 ## Usage
-Nothing here yet, but I am working on it =)
+1. Chose the contry and the area at the bottom left hand side
+2. Click Environment and choose Flora or Fauna and "generate random"
+3. More features will follow soon =)
