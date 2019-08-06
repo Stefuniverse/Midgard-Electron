@@ -18,9 +18,10 @@ function createWindow () {
   })
 
   win.loadURL(`file://${__dirname}/dist/angular-electron/index.html`)
+  win.removeMenu()
   win.maximize()
   // uncomment below to open the DevTools.
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   // Event when the window is closed.
   win.on('closed', function () {

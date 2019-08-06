@@ -1,2 +1,7 @@
-<app-toolbar></app-toolbar>
-<app-status-overview id="app-status"></app-status-overview>
+<div id="flex-container">
+  <app-toolbar class="flex-item" id="header"></app-toolbar>
+  <div class="flex-item" id="content">
+    <app-status-overview class="flex-item" id="status-overview"></app-status-overview>
+    <app-eventviewer class="flex-item" id="event-viewer"></app-eventviewer>
+  </div>
+</div>
