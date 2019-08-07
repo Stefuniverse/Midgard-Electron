@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherTimePanelComponent implements OnInit {
 
+  currentDate : string;
+  currentWeather : string;
+
   constructor() { }
 
   ngOnInit() {

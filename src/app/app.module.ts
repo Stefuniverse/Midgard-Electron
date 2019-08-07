@@ -22,8 +22,20 @@ import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { FeatherModule } from 'angular-feather';
+import { Sun, CloudRain, CloudSnow, Cloud, CloudLightning } from 'angular-feather/icons';
+
+const icons = {
+  Sun,
+  CloudRain,
+  CloudSnow,
+  Cloud,
+  CloudLightning
+};
 
 @NgModule({
   declarations: [
@@ -50,9 +62,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatExpansionModule,
     MatListModule,
     MatChipsModule,
-    FlexLayoutModule
+    MatIconModule,
+    FlexLayoutModule,
+    FeatherModule.pick(icons)
 
     //AppRoutingModule
+  ],
+  exports: [
+    FeatherModule
   ],
   providers: [],
   bootstrap: [AppComponent],
