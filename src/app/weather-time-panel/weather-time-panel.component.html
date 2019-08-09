@@ -1,18 +1,31 @@
 
 
 <mat-card id="container">
-  <div class="flex-item" id="date">
-    Schlangenmond <br />
-    07. 2T 2440 nL
+  <div id="date" class="flex-item">
+    <div class="flex-item">
+    {{_timeService.getTime().getMoonName()}}
+    </div>
+    <div class="flex-item">
+      {{_timeService.getTime().day}}. {{_timeService.getTime().triade}}T. {{_timeService.getTime().year}} nL
+    </div>
   </div>
-  <div class="flex-item" id="control">
-    <mat-icon aria-hidden="false" aria-label="Example home icon" class="material-icons">skip_previous</mat-icon>
-    <mat-icon aria-hidden="false" aria-label="Example home icon" class="material-icons">calendar_today</mat-icon>
-    <mat-icon aria-hidden="false" aria-label="Example home icon" class="material-icons">skip_next</mat-icon>
+  <div id="control" class="flex-item">
+    <button mat-icon-button (click)="_timeService.getTime().lastDay()" matTooltip="Go to last day" [matTooltipShowDelay]="500">
+      <mat-icon aria-hidden="false" aria-label="Last day" class="material-icons">skip_previous</mat-icon>
+    </button>
+    <button mat-icon-button (click)="setTime()">
+      <mat-icon aria-hidden="false" aria-label="Choose current day" class="material-icons">calendar_today</mat-icon>
+    </button>
+    <button mat-icon-button (click)="_timeService.getTime().nextDay()" matTooltip="Go to next day" [matTooltipShowDelay]="500">
+      <mat-icon aria-hidden="false" aria-label="Next day" class="material-icons">skip_next</mat-icon>
+    </button>
   </div>
   <div class="flex-item" id="weather">
-    Winter<br />
-    <i-feather name="cloud"></i-feather>
-    5°C
+    <div class="flex-item">
+      {{_timeService.getTime().getSeason()}}
+    </div>
+    <div class="flex-item">
+      <i-feather name="cloud"></i-feather> 5°C
+    </div>
   </div>
 </mat-card>
