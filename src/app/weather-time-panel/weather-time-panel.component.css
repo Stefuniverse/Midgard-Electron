@@ -1,6 +1,8 @@
 #container {
   padding: 0;
   height: 60px;
+  flex: 1 0 360px;
+  min-width: 360px !important;
 
   display: flex;
   flex-direction: row;
@@ -16,7 +18,7 @@
 }
 
 #weather{
-  flex: 1 1 90px;
+  flex: 1 1 120px;
   flex-direction: row;
   height: 60px;
   display: flex;
@@ -29,7 +31,7 @@
 }
 
 #control{
-  flex: 1 1 120px;
+  flex: 1 0 120px;
   flex-direction: row;
   height: 60px;
 }
