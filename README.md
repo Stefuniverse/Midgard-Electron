@@ -12,6 +12,6 @@ $ npm i
 ```
 
 ## Usage
-1. Chose the contry and the area at the bottom left hand side
+1. Choose the country and the area at the bottom left hand side
 2. Click Environment and choose Flora or Fauna and "generate random"
 3. More features will follow soon =)
