@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { M5Time } from './m5time';
 import { Weather } from './Weather';
-import { EnvironmentDataService }  from '../environment-data.service';
+import { EnvironmentDataService }  from './environment-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -71,8 +71,6 @@ export class WeatherService {
       }
     }
   }
-
-
 
   getLastDay() : M5Time {
 
@@ -144,14 +142,7 @@ export class WeatherService {
     var weatherzone : string;
     var lastDay : Weather;
 
-
-
-
   }
-
-
-
-
 
   constructor( private envDataService: EnvironmentDataService ) {
     this.day = 1;
