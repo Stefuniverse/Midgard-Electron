@@ -10,4 +10,9 @@ export class M5Time {
     this.moon = moon;
     this.year = year;
   }
+
+  toString() : string {
+    return this.day+"/"+this.triade+"/"+this.moon+"/"+this.year
+  }
+  
 }

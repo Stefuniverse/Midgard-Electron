@@ -55,6 +55,14 @@ export class EnvironmentDataService {
     return of (this.countryList.sort())
   }
 
+  getCurrentCountry() : string {
+    return this.currentCountry;
+  }
+
+  getCurrentArea() : string {
+    return this.currentArea;
+  }
+
   setLocation(country : string, area : string) : void {
     this.currentCountry = country;
     this.currentArea = area;

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import {M5Time} from './m5time';
+import { M5Time } from './m5time';
+import { Weather } from './Weather';
+import { EnvironmentDataService }  from '../environment-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,17 +10,19 @@ export class WeatherService {
 
   weatherIcon : string;
 
-  day : number = 1;
-  triade : number = 1;
-  moon : number = 1;
-  year : number = 2400;
+  day : number;
+  triade : number;
+  moon : number;
+  year : number;
 
   wind : number;
   clouds : number;
   rain : number;
   temp : string;
 
-  daystorage : Object;
+  daystorage : Object = {};
+
+  private _envDataService : EnvironmentDataService;
 
   private DAYS_IN_TRIADE : number = 13;
   private TRIADES_IN_MOON : number = 2;
@@ -133,7 +137,14 @@ export class WeatherService {
     return this.year;
   }
 
-  calculateWeather(zone : string) : void{
+  calculateWeather(country : string, area : string) : void{
+    var country : string = this._envDataService.getCurrentCountry();
+    var area : string = this._envDataService.getCurrentArea();
+
+    var weatherzone : string;
+    var lastDay : Weather;
+
+
 
 
   }
@@ -142,5 +153,12 @@ export class WeatherService {
 
 
 
-  constructor() { }
+  constructor( private envDataService: EnvironmentDataService ) {
+    this.day = 1;
+    this.triade = 1;
+    this.moon = 1;
+    this.year = 1;
+    this._envDataService = envDataService;
+    this.calculateWeather(envDataService.getCurrentCountry(), envDataService.getCurrentArea())
+  }
 }
