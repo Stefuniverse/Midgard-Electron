@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TimeService } from '../timeservice.service'
+import { WeatherService } from '../weather.service'
 
 @Component({
   selector: 'app-weather-time-panel',
@@ -9,10 +9,10 @@ import { TimeService } from '../timeservice.service'
 export class WeatherTimePanelComponent implements OnInit {
 
   currentWeather : string;
-  _timeService;
+  _weatherService : WeatherService;
 
-  constructor(private timeService: TimeService) {
-    this._timeService = timeService;
+  constructor(private weatherService: WeatherService) {
+    this._weatherService = weatherService;
 
   }
 

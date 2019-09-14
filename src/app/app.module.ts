@@ -28,6 +28,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FeatherModule } from 'angular-feather';
 import { Sun, CloudRain, CloudSnow, Cloud, CloudLightning } from 'angular-feather/icons';
+import { SetTimeDialogComponent } from './set-time-dialog/set-time-dialog.component';
 
 const icons = {
   Sun,
@@ -45,7 +46,8 @@ const icons = {
     EventviewerComponent,
     ToolbarComponent,
     EnvGenerateRandomDialogComponent,
-    WeatherTimePanelComponent
+    WeatherTimePanelComponent,
+    SetTimeDialogComponent
   ],
   imports: [
     BrowserModule,

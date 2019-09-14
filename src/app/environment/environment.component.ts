@@ -36,9 +36,11 @@ export class EnvironmentComponent implements OnInit {
     if (anm.rarity === 1){
       return "lightgrey";
     } else if (anm.rarity === 2){
+      return "lightgreen";
+    } else if (anm.rarity === 3) {
       return "lightblue";
     } else {
-      return "lightgreen";
+      return "plum";
     }
   }
 

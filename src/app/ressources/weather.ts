@@ -1,6 +1,20 @@
 
 export const TEMPERATURERANGES = { 'sehr kalt': '<-15', 'kalt': '-15 - -5', 'kühl': '-4 - 5', 'mild': '6-19', 'warm': '20-29', 'heiß': '30-36', 'sehr heiß': '> 36' }
 
+export const CLIMAPERCOUNTRY = [
+  { 'name': '1A', 'countries': { 'Waeland': ['Arktis'], 'Fuardain': ['Arktis'] } },
+  { 'name': '1B ', 'countries': { 'Fuardain': ['Berg', 'Küste', 'Wald', 'Urwald', 'Hochebene', 'Ebene'], 'Moravod': ['Berg', 'Wald', 'Küste', 'Urwald', 'Ebene', 'Gebirgstal', 'Hochebene'], 'Waeland': ['Berg', 'Küste', 'Wald', 'Urwald', 'Ebene', 'Gebirgstal', 'Hochebene'] } },
+  { 'name': '2A', 'countries': { 'Clanngadarn': ['Berg', 'Steilküste', 'Küste', 'Wald', 'Urwald', 'Sumpf', 'Gewässer', 'Hochebene', 'Bergwald', 'Ebene'], 'Waeland': ['Berg', 'Steilküste', 'Küste', 'Wald', 'Urwald', 'Sumpf', 'Gewässer', 'Ebene', 'Gebirgstal', 'Hochebene', 'Bergwald'], 'Moravod': ['Berg', 'Wald', 'Steilküste', 'Küste', 'Urwald', 'Sumpf', 'Gewässer', 'Ebene', 'Gebirgstal', 'Hochebene'], 'Medjis': ['Wald', 'Berg', 'Steilküste', 'Küste', 'Urwald', 'Sumpf', 'Gewässer', 'Gebirgstal', 'Hochebene', 'Steppe', 'Bergwald'] } },
+  { 'name': '2B', 'countries': { 'Ywerddon': ['Berg', 'Küste', 'Wald', 'Urwald', 'Sumpf', 'Gewässer', 'Hochebene', 'Bergwald', 'Ebene'], 'Alba': ['Berg', 'Küste', 'Wald', 'Urwald', 'Sumpf', 'Gewässer', 'Hochebene', 'Bergwald', 'Ebene', 'Bergwald'], 'Erainn': ['Berg', 'Küste', 'Wald', 'Urwald', 'Sumpf', 'Gewässer', 'Hochebene', 'Bergwald', 'Ebene'], 'Waeland': ['Berg', 'Küste', 'Wald', 'Urwald', 'Sumpf', 'Gewässer', 'Ebene', 'Gebirgstal', 'Hochebene', 'Bergwald'] } },
+  { 'name': '2C', 'countries': { 'Moravod': ['Berg', 'Wald', 'Steilküste', 'Küste', 'Urwald', 'Sumpf', 'Gewässer', 'Ebene', 'Gebirgstal', 'Hochebene'], 'Medjis': ['Wald', 'Berg', 'Steilküste', 'Küste', 'Urwald', 'Sumpf', 'Gewässer', 'Gebirgstal', 'Hochebene', 'Steppe', 'Bergwald'] } },
+  { 'name': '3A', 'countries': { 'Inseln unter dem Westwind': ['Berg', 'Steilküste', 'Küste', 'Gebirgstal', 'Steppe'], 'Erainn': ['Berg', 'Steilküste', 'Küste', 'Hochebene'], 'Chryseia': ['Berg', 'Steilküste', 'Küste', 'Hochebene'], 'Valian': ['Berg', 'Steilküste', 'Küste', 'Steppe'], 'Küstenstaaten': ['Berg', 'Steilküste', 'Steppe', 'Hochebene', 'Küste'] } },
+  { 'name': '3B', 'countries': { 'Nahuatlan': ['Berg', 'Küste', 'Gewässer', 'Steppe', 'Savanne', 'Sumpf', 'Gebirgstal'], 'Eschar': ['Gewässer', 'Berg', 'Steppe', 'Savanne', 'Küste'], 'Buluga': ['Berg', 'Steppe', 'Savanne', 'Sumpf', 'Gewässer', 'Küste'], 'Urruti': ['Sumpf', 'Küste', 'Steppe', 'Savanne', 'Berg', 'Gewässer'], 'Rawindra': ['Berg', 'Küste', 'Steppe', 'Savanne', 'Sumpf', 'Gewässer', 'Gebirgstal'], 'Aran': ['Steppe', 'Berg', 'Küste', 'Savanne', 'Gewässer'] } },
+  { 'name': '3C', 'countries': { 'Eschar': ['Wüste', 'Savanne', 'Küste'], 'Aran': ['Wüste', 'Küste', 'Savanne'], 'Buluga': ['Savanne', 'Küste', 'Wüste'] } },
+  { 'name': '3D', 'countries': { 'Tegarische Steppe': ['Steppe', 'Berg', 'Küste', 'Sumpf', 'Gewässer', 'Hochebene'], 'Aran': ['Steppe', 'Berg', 'Küste', 'Hochebene', 'Gewässer'] } },
+  { 'name': '3E', 'countries': { 'KanThaiPan': ['Berg', 'Küste', 'Steppe', 'Hochebene', 'Sumpf', 'Gewässer', 'Gebirgstal'] } },
+  { 'name': '4', 'countries': { 'KanThaiPan': ['Berg', 'Wald', 'Küste', 'Urwald', 'Sumpf', 'Gewässer', 'Gebirgstal'], 'Rawindra': ['Dschungel', 'Berg', 'Küste', 'Wald', 'Savanne', 'Urwald', 'Sumpf', 'Gewässer', 'Gebirgstal'], 'Nahuatlan': ['Berg', 'Küste', 'Wald', 'Gewässer', 'Dschungel', 'Savanne', 'Urwald', 'Sumpf', 'Gebirgstal'], 'Feuerinseln': ['Berg', 'Küste', 'Wald', 'Gewässer', 'Savanne', 'Urwald', 'Sumpf', 'Dschungel', 'Gebirgstal'], 'Ikenga Becken': ['Dschungel', 'Gewässer', 'Sumpf', 'Küste', 'Wald', 'Berg', 'Gebirgstal'] } }
+]
+
 export const CLIMATEZONES = {
   '1A': {
     'Temperatur': {
