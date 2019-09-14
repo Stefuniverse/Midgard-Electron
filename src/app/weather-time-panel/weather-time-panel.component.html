@@ -13,7 +13,7 @@
     <button mat-icon-button (click)="_weatherService.setLastDay()" matTooltip="Go to last day" [matTooltipShowDelay]="500">
       <mat-icon aria-hidden="false" aria-label="Last day" class="material-icons">skip_previous</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button mat-icon-button (click)="setTimeOpenDialog()" matTooltip="Choose current day" [matTooltipShowDelay]="500">
       <mat-icon aria-hidden="false" aria-label="Choose current day" class="material-icons">calendar_today</mat-icon>
     </button>
     <button mat-icon-button (click)="_weatherService.setNextDay()" matTooltip="Go to next day" [matTooltipShowDelay]="500">

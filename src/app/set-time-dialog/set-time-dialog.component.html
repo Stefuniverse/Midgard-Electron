@@ -1,1 +1,18 @@
-<p>set-time-dialog works!</p>
+<h1 mat-dialog-title>Set new Time</h1>
+<div mat-dialog-content>
+  <p>Please select the new time</p>
+  <mat-form-field>
+    Day:
+    <input matInput type="number" [(ngModel)]="data.day">
+    Triade:
+    <input matInput type="number" [(ngModel)]="data.triade">
+    Moon:
+    <input matInput type="number" [(ngModel)]="data.moon">
+    Year:
+    <input matInput type="number" [(ngModel)]="data.year">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Abort</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Set new time</button>
+</div>

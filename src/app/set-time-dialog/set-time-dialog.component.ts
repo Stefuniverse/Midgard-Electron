@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {TimeData} from '../setTimeData';
 
 @Component({
   selector: 'app-set-time-dialog',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SetTimeDialogComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<SetTimeDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: TimeData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 
   ngOnInit() {
   }

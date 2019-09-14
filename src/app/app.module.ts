@@ -75,6 +75,6 @@ const icons = {
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [EnvGenerateRandomDialogComponent]
+  entryComponents: [EnvGenerateRandomDialogComponent, SetTimeDialogComponent]
 })
 export class AppModule { }
