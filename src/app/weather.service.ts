@@ -142,6 +142,7 @@ export class WeatherService {
     var weatherzone : string;
     var lastDay : Weather;
 
+
   }
 
   constructor( private envDataService: EnvironmentDataService ) {
