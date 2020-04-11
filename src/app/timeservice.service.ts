@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { M5Time } from './m5time';
+import { M5Date } from './m5_date';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TimeService {
 
-  private _currentTime : M5Time;
-  
+  private _currentTime : M5Date;
+
 
   constructor() {
 
-    this._currentTime = new M5Time(7, 2, 8, 2400);
+    this._currentTime = new M5Date(7, 2, 8, 2400);
 
   }
 
-  getTime() : M5Time {
+  getTime() : M5Date {
     return this._currentTime;
   }
 

@@ -31,8 +31,19 @@ export class WeatherTimePanelComponent implements OnInit {
 
   }
 
-  setTime() : void{
+  setWeatherIcon() : string {
     //TODO
+    return "";
+  }
+
+  setWeatherTooltip() : string {
+    //TODO
+    return "";
+  }
+
+  setWeatherTemperature() : string {
+    //TODO
+    return "";
   }
 
   ngOnInit() {

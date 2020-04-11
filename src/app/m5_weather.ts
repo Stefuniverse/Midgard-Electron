@@ -1,4 +1,4 @@
-export class Weather{
+export class M5Weather{
   temp : string;
   rain : number;
   clouds : number;

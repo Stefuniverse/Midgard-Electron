@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { M5Time } from './m5time';
-import { Weather } from './Weather';
+import { M5Date } from './m5_Date';
+import { M5Weather } from './m5_weather';
 import { EnvironmentDataService }  from './environment-data.service';
 
 @Injectable({

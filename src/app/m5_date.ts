@@ -1,4 +1,4 @@
-export class M5Time {
+export class M5Date {
   day : number;
   triade : number;
   moon : number;
@@ -14,5 +14,5 @@ export class M5Time {
   toString() : string {
     return this.day+"/"+this.triade+"/"+this.moon+"/"+this.year
   }
-  
+
 }
